@@ -1,0 +1,62 @@
+Historia de usuario: `IDEAL-WEIGHT`
+
+COMO    Usuario de Health-Calculator, 
+QUIERO  poder introducir los datos de género y altura a la calculadora 
+PARA    calcular mi peso ideal.
+
+Criterio de aceptación `IDEAL-WEIGHT`
+
+Introducción de datos de manera incorrecta 
+
+- Escenario: Introducción de altura incorrecta. 
+DADO que tengo la Health-calc y soy usuario
+CUANDO calculo el peso ideal con una altura negativa o igual a 0
+ENTONCES el sistema genera una excepción guiándome para ingresar de manera correcta la altura.
+
+
+DADO que tengo la Health-calc y soy usuario
+CUANDO introduzco un valor para la altura que excede el límite superior permitido
+ENTONCES se genera un error de desbordamiento.
+
+
+DADO que tengo la Health-calc y soy usuario
+CUANDO calculo el peso ideal con un género que es incorrecto
+ENTONCES el sistema genera una excepción.
+
+
+DADO que soy usuario y tengo la Health-calc
+CUANDO ingreso mi género y altura en la calculadora y el peso ideal calculado es menor o igual a 0
+ENTONCES la calculadora debería mostrar un mensaje de que el resultado es poco realista.
+
+
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo el peso ideal para los parámetros válidos dados
+ENTONCES el sistema devuelve un resultado válido.
+
+BMR-historias.
+
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo la tasa metabólica con altura negativa o inferior a los niveles mínimos
+ENTONCES entonces el sistema lanzará una excepción.
+
+
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo la tasa metabólica para un género que no es válido
+ENTONCES entonces el sistema lanzará una excepción.
+
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo la tasa metabólica para un usuario con edad negativa
+ENTONCES entonces el sistema lanzará una excepción.
+
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo la tasa metabólica para un usuario con peso negativo o igual a 0
+ENTONCES entonces el sistema lanzará una excepción.
+
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo la tasa metabólica para una mujer con una combinación de altura peso y edad que resulta en un peso negativo.
+ENTONCES entonces el sistema lanzará una excepción.
+
+DADO que tengo una Health-calc
+CUANDO calculo la tasa basal metabólica para los parámetros válidos dados
+ENTONCES el sistema devuelve un resultado válido.
+
