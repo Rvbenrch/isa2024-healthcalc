@@ -63,7 +63,8 @@ Como podemos apreciar no ha habido ninguna necesidad de creación de ramas. Adem
 
 </details>
 
-### Práctica 2
+</details>
+<summary>Práctica 2</summary>
 
 Para el desarrollo de esta práctica, hemos clonado el repostorio de nuevo en nuestro dispositivo de manera local. Hemos añadido los distintos branchs que expecificaban en el trabajo, de tal forma que el "anterior" main se ha convertido en tarea1 y hemos creado otra rama tarea2 dónde hemos desarrollado esta práctica.
 
@@ -86,3 +87,5 @@ Es una herramienta simple y utilizada para evaluar el estado de peso de una pers
 
 *- Necesidades calóricas diarias*
 Una vez que conocemos la TMB, podemos estimar las necesidades calóricas añadiendole un factor (que es desiganado por la edad) que estima cuánto de ejercicio en porcentaje a tu edad debes de realizar.
+
+</details>
