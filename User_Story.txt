@@ -33,36 +33,7 @@ DADO que tengo una Health-calc y soy usuario
 CUANDO calculo el peso ideal para los parámetros válidos dados
 ENTONCES el sistema devuelve un resultado válido.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+BMR-historias.
 
 DADO que tengo una Health-calc y soy usuario
 CUANDO calculo la tasa metabólica con altura negativa o inferior a los niveles mínimos
