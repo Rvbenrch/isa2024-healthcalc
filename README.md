@@ -63,8 +63,9 @@ Como podemos apreciar no ha habido ninguna necesidad de creación de ramas. Adem
 
 </details>
 
-</details>
+<details>
 <summary>Práctica 2</summary>
+
 
 Para el desarrollo de esta práctica, hemos clonado el repostorio de nuevo en nuestro dispositivo de manera local. Hemos añadido los distintos branchs que expecificaban en el trabajo, de tal forma que el "anterior" main se ha convertido en tarea1 y hemos creado otra rama tarea2 dónde hemos desarrollado esta práctica.
 
@@ -89,3 +90,128 @@ Es una herramienta simple y utilizada para evaluar el estado de peso de una pers
 Una vez que conocemos la TMB, podemos estimar las necesidades calóricas añadiendole un factor (que es desiganado por la edad) que estima cuánto de ejercicio en porcentaje a tu edad debes de realizar.
 
 </details>
+
+---
+
+# Práctica 3
+## 🗒️ Descripción 
+
+Para el desarrollo de la práctica 3, vamos a crearhistorias de usuario junto a sus distintos escenarios, además de realizar los criterios de aceptación utilizando BDD ( behavior-DrivenDevelopment) que nos ayuda a garantizar que se cumplen los requisitos de nuestro sistema.
+
+## 📱 Historias de Usuario 
+
+**- Historia de usuario: `IDEAL-WEIGHT`**
+```
+COMO    Usuario de health-Calculator, 
+QUIERO  poder introducir los datos de género y altura a la calculadora 
+PARA    calcular mi peso ideal.
+```
+**- Criterio de aceptación `IDEAL-WEIGHT`**
+<details>
+<summary>Introducción de datos de manera incorrecta ❌ </summary>
+
+* Escenario: Introducción de altura incorrecta. 
+```
+DADO que tengo la Health-calc y soy usuario
+CUANDO calculo el peso ideal con una altura negativa o igual a 0
+ENTONCES el sistema genera una excepción guiándome para ingresar de manera correcta la altura.
+```
+* Escenario: Introducción de altura incorrecta. 
+```
+DADO que tengo la Health-calc y soy usuario
+CUANDO introduzco un valor para la altura que excede el límite superior permitido
+ENTONCES se genera un error de desbordamiento.
+```
+* Escenario: Introdución de género incorrecto. 
+
+```
+DADO que tengo la Helth-calc y soy usuario
+CUANDO calculo el peso ideal con un género que es incorrecto
+ENTONCES el sistema genera una excepción.
+```
+</details>
+
+<details>
+<summary>Peso ideal difiere de la realidad ❗</summary>
+
+* Escenario: mostrar error cuando el peso ideal difiera de la realidad.
+```
+DADO que soy usuario y tengo la Health-calc
+CUANDO ingreso mi género y altura en la calculadora y el peso ideal calculado es menor o igual a 0
+ENTONCES la calculadora debería mostrar un mensaje de que el resultado es poco realista.
+```
+</details>
+<details>
+<summary> Parámetros válidos✅</summary>
+
+* Escenario: Parámetros válidos 
+```
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo el peso ideal para los parámetros válidos dados
+ENTONCES el sistema devuelve un resultado válido.
+```
+</details>
+
+---
+
+
+**- Historia de usuario: `basalMetabolicRate`**
+```
+COMO    Usuario de health-Calculator, 
+QUIERO  poder calcular la tasa metabólica basal según los parámetros ingresados 
+PARA    poder conocer en que estado se encuentra la salud del usuario.
+```
+
+**- Criterio de aceptación `basalMetabolicRate`**
+<details>
+<summary>Introducción de datos de manera NO válidos ❌ </summary>
+
+* Escenario: Intoducción de una altura no válida
+```
+DADO que tengo una Helth-calc y soy usuario
+CUANDO calculo la tasa metabólica con altura negativa o inferior a los niveles mínimos
+ENTONCES entonces el sistema lanzará una excepción.
+```
+
+* Escenario: Introducción de Género no válido.
+```
+DADO que tengo una Helth-calc y soy usuario
+CUANDO calculo la tasa metabólica para un género que no es válido
+ENTONCES entonces el sistema lanzará una excepción.
+```
+
+* Escenario: Introducción de Edad no válido.
+```
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo la tasa metabólica para un usuario con edad negativa
+ENTONCES entonces el sistema lanzará una excepción.
+```
+* Escenario: Introducción de Peso no válido.
+```
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo la tasa metabólica para un usuario con peso negativo o igual a 0
+ENTONCES entonces el sistema lanzará una excepción.
+```
+* Escenario: Introducción de resultado negativo para el Peso(solo para  mujeres)
+```
+DADO que tengo una Health-calc y soy usuario
+CUANDO calculo la tasa metabólica para una mujer con una combinación de altura peso y edad que resulta en un peso negativo.
+ENTONCES entonces el sistema lanzará una excepción.
+```
+</details>
+
+<details>
+<summary> Dando parámetros adecuados ✅ </summary>
+
+* Escenario: Se dan parámetros aadecuados
+```
+DADO que tengo una Health-calc
+CUANDO calculo la tasa basal metabólica para los parámetros válidos dados
+ENTONCES el sistema devuelve un resultado válido.
+```
+</details>
+
+
+
+
+
