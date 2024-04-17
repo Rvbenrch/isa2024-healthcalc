@@ -91,8 +91,8 @@ Una vez que conocemos la TMB, podemos estimar las necesidades calóricas añadie
 
 </details>
 
----
-
+<details>
+<summary>Práctica 3</summary>
 # Práctica 3
 ## 🗒️ Descripción 
 
@@ -210,8 +210,19 @@ CUANDO calculo la tasa basal metabólica para los parámetros válidos dados
 ENTONCES el sistema devuelve un resultado válido.
 ```
 </details>
+</details>
 
 
+---
+# Práctica 4
+Para el desarrollo de esta parte primero hemos diseñado un prototipo de cómo queríamos que se viese nuestra aplicación.
 
+## Prototipo 🧐
+![Prototipo](https://github.com/Rvbenrch/isa2024-healthcalc/blob/practica4/im_prototipo.jpg)
+
+## Resultado Final 💯
+![Prototipo](https://github.com/Rvbenrch/isa2024-healthcalc/blob/practica4/imfinal.jpg)
+
+Y así quedaría el desarrollo final del diseño visual de la calculadora.
 
 
