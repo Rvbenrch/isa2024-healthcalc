@@ -253,7 +253,9 @@ Una vez hemos creado el nuevo branch de la práctica 6, vamos a implementar el m
 
 Hemos implementado el patrón Singleton en HealthCalcImpl, actualizado el Main para utilizar la instancia Singleton y proporcionado un esbozo del diagrama de clases UML.
 </details>
+
 ![Texto alternativo](foto1_Singleton.png)
+
 
  ### **Patrones de diseño**
 <details>
