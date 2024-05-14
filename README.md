@@ -288,11 +288,13 @@ Para llevar a cabo este proceso, seguiremos los siguientes pasos:
 
 <details>
     <summary> Apartado C / Idiomas</summary>
+
+    
 ### Tareas Específicas
 - Crear dos versiones de la calculadora BMR:
 
-    * Una que acepte altura en metros y peso en kilogramos.
-    * Otra que acepte altura en pies y peso en libras.
+* Una que acepte altura en metros y peso en kilogramos.
+* Otra que acepte altura en pies y peso en libras.
     
 - Mostrar mensajes precisos en ambos idiomas:
 
