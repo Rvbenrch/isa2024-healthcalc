@@ -254,7 +254,7 @@ Una vez hemos creado el nuevo branch de la práctica 6, vamos a implementar el m
 Hemos implementado el patrón Singleton en HealthCalcImpl, actualizado el Main para utilizar la instancia Singleton y proporcionado un esbozo del diagrama de clases UML.
 </details>
 
-![Texto alternativo](foto1_Singleton.png)
+![Texto alternativo](design_patterns/foto1_Singleton.png)
 
 
  ### **Patrones de diseño**
@@ -270,15 +270,40 @@ El Adapter nos permite crear un adaptador que convierte las llamadas de la inter
 En este diagrama, HealthAdapter es la clase adaptadora que implementa la interfaz HealthHospital y utiliza una instancia de HealthCalc internamente para realizar los cálculos. Las llamadas a los métodos bmr y pesoIdeal de HealthHospital se convierten en llamadas a los métodos correspondientes de HealthCalc. La implementación de HealthAdapter se encarga de la conversión de parámetros según sea necesario.
 </details>
 
-![Texto alternativo](HospitalCostaSol.png)
+![Texto alternativo](design_patterns/HospitalCostaSol.png)
 
 <details>
 <summary> Apartado B / HealthStats </summary>
 
-Aplicaremos el patrón de diseño `Decorator`. Este patrón es adecuado porque nos permite añadir responsabilidades adicionales (como llevar un registro y calcular estadísticas) a un objeto (en este caso, nuestra calculadora de salud) de manera flexible y dinámica, sin modificar su estructura.
+Aplicaremos el patrón de diseño `Proxi`. Este patrón es adecuado porque nos permite añadir responsabilidades adicionales (como llevar un registro y calcular estadísticas) a un objeto (en este caso, nuestra calculadora de salud) de manera flexible y dinámica, sin modificar su estructura.
 
 Para llevar a cabo este proceso, seguiremos los siguientes pasos:
 * Definir la interfaz HealthStats.
-* Crear una clase concreta que implemente HealthStats y que decore nuestra calculadora.
-* Actualizar el Main o cualquier cliente de la calculadora para utilizar esta nueva clase decoradora
+* Crear una clase concreta que implemente HealthStats y que realice el proxy a nuestra calculadora.
+* Actualizar el Main o cualquier cliente de la calculadora para utilizar esta nueva clase Proxy
 </details>
+
+![Texto alternativo](design_patterns/apartadoB.png)
+
+
+<details>
+    <summary> Apartado C / Idiomas</summary>
+### Tareas Específicas
+- Crear dos versiones de la calculadora BMR:
+
+    * Una que acepte altura en metros y peso en kilogramos.
+    * Otra que acepte altura en pies y peso en libras.
+    
+- Mostrar mensajes precisos en ambos idiomas:
+
+El mensaje debe incluir detalles específicos de la persona (altura, peso, BMR).
+Debe ser traducido correctamente al español y al inglés.
+Asegurar la exactitud en las conversiones:
+
+Para realizar la conversión del idioma se realizará desde la propia clase DecoratorCalc, para evitar crear clases en exceso y hacer demasiada compleja la calculadora.
+
+
+</details>
+
+
+![Texto alternativo](design_patterns/apartadoB.png)
