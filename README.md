@@ -253,7 +253,7 @@ Una vez hemos creado el nuevo branch de la práctica 6, vamos a implementar el m
 
 Hemos implementado el patrón Singleton en HealthCalcImpl, actualizado el Main para utilizar la instancia Singleton y proporcionado un esbozo del diagrama de clases UML.
 </details>
-
+![Texto alternativo](foto1_Singleton.png)
  ### **Patrones de diseño**
 <details>
 <summary> Apartado A / Hospital Costa del Sol </summary>
@@ -266,4 +266,6 @@ El Adapter nos permite crear un adaptador que convierte las llamadas de la inter
 
 En este diagrama, HealthAdapter es la clase adaptadora que implementa la interfaz HealthHospital y utiliza una instancia de HealthCalc internamente para realizar los cálculos. Las llamadas a los métodos bmr y pesoIdeal de HealthHospital se convierten en llamadas a los métodos correspondientes de HealthCalc. La implementación de HealthAdapter se encarga de la conversión de parámetros según sea necesario.
 </details>
+
+![Texto alternativo](HospitalCostaSol.png)
 
