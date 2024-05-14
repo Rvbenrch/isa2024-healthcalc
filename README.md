@@ -267,3 +267,13 @@ El Adapter nos permite crear un adaptador que convierte las llamadas de la inter
 En este diagrama, HealthAdapter es la clase adaptadora que implementa la interfaz HealthHospital y utiliza una instancia de HealthCalc internamente para realizar los cálculos. Las llamadas a los métodos bmr y pesoIdeal de HealthHospital se convierten en llamadas a los métodos correspondientes de HealthCalc. La implementación de HealthAdapter se encarga de la conversión de parámetros según sea necesario.
 </details>
 
+<details>
+<summary> Apartado B / HealthStats </summary>
+
+Aplicaremos el patrón de diseño `Decorator`. Este patrón es adecuado porque nos permite añadir responsabilidades adicionales (como llevar un registro y calcular estadísticas) a un objeto (en este caso, nuestra calculadora de salud) de manera flexible y dinámica, sin modificar su estructura.
+
+Para llevar a cabo este proceso, seguiremos los siguientes pasos:
+* Definir la interfaz HealthStats.
+* Crear una clase concreta que implemente HealthStats y que decore nuestra calculadora.
+* Actualizar el Main o cualquier cliente de la calculadora para utilizar esta nueva clase decoradora
+</details>
