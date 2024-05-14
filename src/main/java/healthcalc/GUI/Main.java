@@ -1,9 +1,7 @@
 package program.gui;
-
+import healthcalc.*;
 import java.awt.EventQueue;
-
-
-import program.HealthCalcImpl; // Importa correctamente HealthCalcImpl si está en un paquete diferente
+import healthcalc.HealthCalcImpl;
 
 public class Main {
 
@@ -11,11 +9,10 @@ public class Main {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    HealthCalcImpl healthCalc = new HealthCalcImpl(); // Crea una instancia de HealthCalcImpl
-                    view vista = new view(); // Usa HealthCalcVista en lugar de view
-                    Controller controlador = new Controller(healthCalc, vista);
+                    View vista = new View();
+                    Controller controlador = new Controller(vista);
                     vista.registrarControlador(controlador);
-                    
+                    vista.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

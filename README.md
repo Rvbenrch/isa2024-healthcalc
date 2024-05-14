@@ -212,9 +212,8 @@ ENTONCES el sistema devuelve un resultado válido.
 </details>
 </details>
 
-
----
-# Práctica 4
+<details>
+<summary> Práctica 4 </summary>
 Para el desarrollo de esta parte primero hemos diseñado un prototipo de cómo queríamos que se viese nuestra aplicación.
 
 ## Prototipo 🧐
@@ -225,4 +224,46 @@ Para el desarrollo de esta parte primero hemos diseñado un prototipo de cómo q
 
 Y así quedaría el desarrollo final del diseño visual de la calculadora.
 
+</details>
+
+--- 
+# Práctica 6
+
+<details>
+<summary> Singleton </summary>
+Una vez hemos creado el nuevo branch de la práctica 6, vamos a implementar el método Singleton:
+**Pasos para implementar el patrón Singleton:**
+* Modificar HealthCalcImpl para implementar Singleton:
+    - Crear una instancia estática privada de HealthCalcImpl.
+    - Hacer el constructor privado.
+    - Proveer un método público estático para obtener la instancia única.
+
+* Actualizamos el método `Main` para poder usar la instancia Singleton
+    - Actualizamos `HealthCalcImpl` con el patrón Singleton implementado.
+    - Actualizamos el `Main` en la clase `HealthCalc` para poder usar esta instancia.
+
+* Diagrama UML:
+    - Para el desarrollo de este apartado he decidido utilizar la herramienta `draw.io`. 
+    - En este diagrama:
+        * HealthCalc es una interfaz con los métodos idealWeight y basalMetabolicRate.
+        * HealthCalcImpl es una clase que implementa HealthCalc.
+        * HealthCalcImpl tiene un constructor privado, una instancia estática privada y un método estático público getInstance para obtener la instancia única.
+
+* **Conclusión Singleton** 
+
+Hemos implementado el patrón Singleton en HealthCalcImpl, actualizado el Main para utilizar la instancia Singleton y proporcionado un esbozo del diagrama de clases UML.
+</details>
+
+ ### **Patrones de diseño**
+<details>
+<summary> Apartado A / Hospital Costa del Sol </summary>
+
+Para integrar la calculadora de salud en el sistema informático del Hospital Costa del Sol de Marbella y proporcionarles el servicio sin tener que volver a implementar los métodos, podemos aplicar el patrón de diseño `Adapter`.
+
+El patrón Adapter permite que interfaces incompatibles trabajen juntas. En este caso, la interfaz HealthHospital proporcionada por el hospital y la interfaz HealthCalc que utilizamos en nuestra calculadora de salud son incompatibles en cuanto a los nombres y tipos de parámetros de los métodos.
+
+El Adapter nos permite crear un adaptador que convierte las llamadas de la interfaz HealthHospital a llamadas de la interfaz HealthCalc y viceversa.
+
+En este diagrama, HealthAdapter es la clase adaptadora que implementa la interfaz HealthHospital y utiliza una instancia de HealthCalc internamente para realizar los cálculos. Las llamadas a los métodos bmr y pesoIdeal de HealthHospital se convierten en llamadas a los métodos correspondientes de HealthCalc. La implementación de HealthAdapter se encarga de la conversión de parámetros según sea necesario.
+</details>
 
