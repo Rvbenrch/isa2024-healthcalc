@@ -226,8 +226,8 @@ Y así quedaría el desarrollo final del diseño visual de la calculadora.
 
 </details>
 
---- 
-# Práctica 6
+<details>
+<summary> Práctica 6</summary>
 
 <details>
 <summary> Singleton </summary>
@@ -309,3 +309,41 @@ Para realizar la conversión del idioma se realizará desde la propia clase Deco
 
 
 ![Texto alternativo](design_patterns/apartadoB.png)
+
+</details>
+---
+
+# Práctica 7
+
+### Primer Refactoring 
+Para el desarrollo de esta Refactorización.
+
+Problem: Method with too many parameters in calculateBMR
+* Implementación del Patrón Singleton: Mantendremos la implementación del patrón Singleton.
+* Refactoring de Métodos Largos: Aplicaremos Extract Method para dividir los métodos largos en métodos más pequeños.
+* Uso de Parámetros Encapsulados: Crearemos una clase Person para encapsular los parámetros relacionados con una persona.
+* Manejo de Errores: Mejoraremos el manejo de errores y validaciones.
+
+Problem: Method with too many parameters in calculateBMR
+Refactoring: Introduce Parameter Object
+Type: Class Refactoring
+Descripción:
+Se creó la clase Person para encapsular los parámetros weight, height, age y gender, mejorando la legibilidad y mantenibilidad del código. La firma del método calculateBMR se simplificó, pasando a recibir un objeto Person en lugar de múltiples parámetros primitivos.
+
+Número de Cambios Manuales:
+10 líneas de código fueron modificadas manualmente. Esto incluye:
+
+Definición de la clase Person (6 líneas).
+Modificación de la firma del método calculateBMR y su implementación (4 líneas).
+Manual Changes: 10 lines of code
+
+
+### Segundo Refactoring
+Problema: Conversión manual de unidades y manejo de excepciones.
+Refactoring: Extract Method y encapsulación de lógica de conversión.
+Type: Method Refactoring
+Description: Extracción de la lógica de conversión de unidades y manejo de excepciones en métodos separados para mejorar la legibilidad y reutilización del código.
+Manual Changes: 6 líneas de código
+Descripción profundizada del problema:
++ Conversión Manual de Unidades: La lógica de conversión de altura y peso está incrustada directamente en los métodos bmr y pesoIdeal, lo que hace que el código sea menos legible y reutilizable.
+* Manejo de Excepciones: El manejo de excepciones se realiza directamente dentro del método pesoIdeal, lo que puede llevar a duplicación de código si se necesita manejar errores de manera similar en otros métodos.

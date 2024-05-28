@@ -12,22 +12,6 @@ public class HealthCalcProxy implements HealthCalc, HealthStats {
         this.patientDataList = new ArrayList<>();
     }
 
-    private static class PatientData {
-        char gender;
-        int age;
-        float height; // in cm
-        float weight; // in kg
-        float bmr;
-
-        public PatientData(char gender, int age, float height, float weight, float bmr) {
-            this.gender = gender;
-            this.age = age;
-            this.height = height;
-            this.weight = weight;
-            this.bmr = bmr;
-        }
-    }
-
     @Override
     public float idealWeight(int height, char gender) throws Exception {
         return healthCalc.idealWeight(height, gender);
@@ -42,32 +26,32 @@ public class HealthCalcProxy implements HealthCalc, HealthStats {
 
     @Override
     public float alturaMedia() {
-        return (float) patientDataList.stream().mapToDouble(pd -> pd.height).average().orElse(0);
+        return PatientData.calcularAlturaMedia(patientDataList);
     }
 
     @Override
     public float pesoMedio() {
-        return (float) patientDataList.stream().mapToDouble(pd -> pd.weight).average().orElse(0);
+        return PatientData.calcularPesoMedio(patientDataList);
     }
 
     @Override
     public float edadMedia() {
-        return (float) patientDataList.stream().mapToInt(pd -> pd.age).average().orElse(0);
+        return PatientData.calcularEdadMedia(patientDataList);
     }
 
     @Override
     public float bmrMedio() {
-        return (float) patientDataList.stream().mapToDouble(pd -> pd.bmr).average().orElse(0);
+        return PatientData.calcularBmrMedio(patientDataList);
     }
 
     @Override
     public int numSexoH() {
-        return (int) patientDataList.stream().filter(pd -> pd.gender == 'M').count();
+        return PatientData.contarSexo(patientDataList, 'M');
     }
 
     @Override
     public int numSexoM() {
-        return (int) patientDataList.stream().filter(pd -> pd.gender == 'W').count();
+        return PatientData.contarSexo(patientDataList, 'W');
     }
 
     @Override

@@ -12,25 +12,32 @@ public class HealthAdapter implements HealthHospital {
 
     @Override
     public double bmr(char genero, int edad, float altura, int peso) {
-        // Convertir altura a metros y peso a kg
-        altura /= 100; // Convertir altura de cm a metros
-        float pesoKg = peso / 1000f; // Convertir peso de gramos a kg
+        float alturaEnMetros = convertirAlturaAMetros(altura);
+        float pesoKg = convertirPesoAKg(peso);
 
-        // Llamar al método correspondiente de HealthCalcImpl
-        return healthCalc.basalMetabolicRate(pesoKg, (int) altura, genero, edad);
+        return healthCalc.basalMetabolicRate(pesoKg, (int) alturaEnMetros, genero, edad);
     }
 
     @Override
     public int pesoIdeal(char genero, float altura) {
-        // Convertir altura a metros
-        altura /= 100; // Convertir altura de cm a metros
-
-        // Llamar al método correspondiente de HealthCalcImpl
+        float alturaEnMetros = convertirAlturaAMetros(altura);
         try {
-            return (int) healthCalc.idealWeight((int) (altura * 100), genero);
+            return (int) healthCalc.idealWeight((int) (alturaEnMetros * 100), genero);
         } catch (Exception e) {
-            e.printStackTrace();
-            return -1; // Manejo de error
+            manejarError(e);
+            return -1;
         }
+    }
+
+    private float convertirAlturaAMetros(float altura) {
+        return altura / 100;
+    }
+
+    private float convertirPesoAKg(int peso) {
+        return peso / 1000f;
+    }
+
+    private void manejarError(Exception e) {
+        e.printStackTrace();
     }
 }

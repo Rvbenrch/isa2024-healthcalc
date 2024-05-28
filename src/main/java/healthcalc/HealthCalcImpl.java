@@ -17,52 +17,71 @@ public class HealthCalcImpl implements HealthCalc {
 
     @Override
     public float idealWeight(int height, char gender) throws Exception {
-        Character sexo = Character.toUpperCase(gender);
-        if (sexo != 'W' && sexo != 'M') {
-            throw new IllegalArgumentException("No se acepta una entrada distinta de 'W' (Woman) o 'M' (Men)");
-        } else if (height > 260) {
-            throw new IllegalArgumentException("Valor excesivamente grande para la entrada de la altura, recuerde que está en cm");
-        } else {
-            if (sexo == 'M') {
-                if (height >= 110) {
-                    return height - 100 - (height - 150) / 4f;
-                }
-            } else {
-                if (height >= 100) {
-                    return height - 100 - (height - 150) / 2.5f;
-                }
-            }
-            throw new IllegalArgumentException("La altura es demasiado pequeña, recuerda que se introduce en centímetros.");
-        }
+        validateHeight(height);
+        validateGender(gender);
+        return calculateIdealWeight(height, gender);
     }
 
     @Override
     public float basalMetabolicRate(float weight, int height, char gender, int age) throws Exception {
+        validateWeight(weight);
+        validateHeight(height);
+        validateGender(gender);
+        validateAge(age);
+
+        Person person = new Person(weight, height, gender, age);
+        return calculateBMR(person);
+    }
+
+    private void validateHeight(int height) throws IllegalArgumentException {
+        if (height > 260) {
+            throw new IllegalArgumentException("Valor excesivamente grande para la entrada de la altura, recuerde que está en cm");
+        } else if (height < 100) {
+            throw new IllegalArgumentException("La altura es demasiado pequeña, recuerda que se introduce en centímetros.");
+        }
+    }
+
+    private void validateWeight(float weight) throws IllegalArgumentException {
         if (20 > weight || weight > 650) {
             throw new IllegalArgumentException("No se aceptarán valores que salgan del rango (20Kg, 650Kg)");
-        } else if (height < 40 || height > 275) {
-            throw new IllegalArgumentException("No se van a aceptar valores que salgan del rango (40cm, 275cm)");
+        }
+    }
+
+    private void validateGender(char gender) throws IllegalArgumentException {
+        char sexo = Character.toUpperCase(gender);
+        if (sexo != 'W' && sexo != 'M') {
+            throw new IllegalArgumentException("No se acepta una entrada distinta de 'W' (Woman) o 'M' (Men)");
+        }
+    }
+
+    private void validateAge(int age) throws IllegalArgumentException {
+        if (0 > age || age > 100) {
+            throw new IllegalArgumentException("Edad incorrecta (solo se aceptarán valores dentro del umbral 0<X<100 años)");
+        }
+    }
+
+    private float calculateIdealWeight(int height, char gender) {
+        char sexo = Character.toUpperCase(gender);
+        if (sexo == 'M') {
+            return height - 100 - (height - 150) / 4f;
         } else {
-            Character sexo = Character.toUpperCase(gender);
-            if (sexo != 'W' && sexo != 'M') {
-                throw new IllegalArgumentException("Valor de sexo incorrecto (solo se aceptarán valores correspondientes a 'M' y 'W')");
-            } else if (0 > age || age > 100) {
-                throw new IllegalArgumentException("Edad incorrecta (solo se aceptarán valores dentro del umbral 0<X<100 años)");
-            } else if (sexo == 'M') {
-                float BMR = 10 * weight + 6.25f * height - 5 * age + 5;
-                if (BMR > 0) {
-                    return BMR;
-                } else {
-                    throw new IllegalArgumentException("Valores introducidos no son adecuados para el cálculo");
-                }
-            } else {
-                float BMR = 10 * weight + 6.25f * height - 5 * age - 161;
-                if (BMR > 0) {
-                    return BMR;
-                } else {
-                    throw new IllegalArgumentException("Valores introducidos no son adecuados para el cálculo");
-                }
-            }
+            return height - 100 - (height - 150) / 2.5f;
+        }
+    }
+
+    private float calculateBMR(Person person) throws IllegalArgumentException {
+        float BMR;
+        char sexo = Character.toUpperCase(person.getGender());
+        if (sexo == 'M') {
+            BMR = 10 * person.getWeight() + 6.25f * person.getHeight() - 5 * person.getAge() + 5;
+        } else {
+            BMR = 10 * person.getWeight() + 6.25f * person.getHeight() - 5 * person.getAge() - 161;
+        }
+
+        if (BMR > 0) {
+            return BMR;
+        } else {
+            throw new IllegalArgumentException("Valores introducidos no son adecuados para el cálculo");
         }
     }
 }
