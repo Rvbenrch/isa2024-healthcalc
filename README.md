@@ -338,6 +338,7 @@ Modificación de la firma del método calculateBMR y su implementación (4 líne
 Manual Changes: 10 lines of code
 
 
+
 ### Segundo Refactoring
 Problema: Conversión manual de unidades y manejo de excepciones.
 Refactoring: Extract Method y encapsulación de lógica de conversión.
@@ -347,3 +348,21 @@ Manual Changes: 6 líneas de código
 Descripción profundizada del problema:
 + Conversión Manual de Unidades: La lógica de conversión de altura y peso está incrustada directamente en los métodos bmr y pesoIdeal, lo que hace que el código sea menos legible y reutilizable.
 * Manejo de Excepciones: El manejo de excepciones se realiza directamente dentro del método pesoIdeal, lo que puede llevar a duplicación de código si se necesita manejar errores de manera similar en otros métodos.
+
+### Tercer Refactoring
+Problem: Feature Envy en HealthCalcProxy.
+
+Refactoring: Move Method.
+
+Type: Method Refactoring.
+
+Description: Moved statistical calculation methods to PatientData to improve cohesion and class responsibility.
+Manual Changes: 15 líneas de código.
+
+Beneficios del Refactoring
+
+Cohesión Mejorada: Los métodos de cálculo estadístico ahora pertenecen a la clase PatientData, que es donde deberían estar, mejorando la cohesión.
+
+Responsabilidad Clarificada: HealthCalcProxy ahora se enfoca en coordinar las operaciones y delega las responsabilidades específicas a PatientData.
+
+Reutilización: Los métodos de PatientData ahora pueden ser reutilizados en otros contextos si es necesario
